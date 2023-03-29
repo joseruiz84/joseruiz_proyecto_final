@@ -1,0 +1,60 @@
+{% extends "seguros/base.html" %}
+{% load static %}
+
+{% block main %}
+<main>     
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">     
+      
+    
+    <!-- START THE FEATURETTES -->
+
+    
+    <hr class="featurette-divider">
+
+    
+    <div class="row featurette">
+      <div class="col-md-6 order-md-2">
+        <h2 class="featurette-heading">Seguros RZ</h2>
+        <p class="lead">Confianza y responsabilidad</p>
+       
+      </div>
+      <div class="col-md-1 order-md-2">
+        
+          <img src="{% static 'seguros/assets/seguros.jpeg' %}" height="400" width="400">
+        
+
+      </div>
+    </div>
+
+    
+
+
+    <!-- /END THE FEATURETTES -->INDEX.
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Back to top</a></p>
+    <p>© 2022–2023 Ruiz Company, Inc. · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Privacy</a> · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Terms</a></p>
+  </footer>
+</main>
+
+{% endblock %}

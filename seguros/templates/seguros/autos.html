@@ -1,0 +1,26 @@
+{% extends "seguros/base.html" %}
+{% load static %}
+{% block main %}
+<html>
+    <body>
+        <h1>Coberturas de autos</h1>   
+<!--nuevo   -->
+{%if form%}
+<form action="{% url 'agregar-post' %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Agregar">
+</form>    
+<br>
+{%endif%}
+    
+    </body>
+</html>
+<ul>
+    {%  for producto in posts  %}
+    <li> {{producto.Suma_asegurada}} - {{ producto.Suma_description }} - {{ producto.heading}}</li>
+    {% endfor %}
+</ul>
+</html>
+
+{% endblock %}
