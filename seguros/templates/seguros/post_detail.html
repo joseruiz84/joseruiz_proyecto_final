@@ -3,11 +3,9 @@
 {% block main %}
 <ul>
     {% for post in object_list %}
-    <li> {{post.id}} - {{ post.Suma_asegurada }} - {{ post.Suma_description }} - {{ post.heading}} 
-        <a href="{% url 'post-detail' post.id %}">Detalle</a>
+    <li> {{post.id}} - {{ post.Suma_asegurada}} - {{ post.Suma_description }}
         <a href="">Actualizar</a>
         <a href="">Borrar</a>
     </li>
     {% endfor %}
-</ul>
 {% endblock %}
