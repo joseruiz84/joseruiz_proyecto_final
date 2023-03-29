@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from seguros.models import Post
 from seguros.forms import PostForm
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DetailView
 
 def index(request):
     return render(request, "seguros/index.html")
@@ -37,3 +38,6 @@ def buscar_post(request):
         "posts": Post.objects.filter(Suma_description__icontains=criterio).all(),
     }
     return render(request, "seguros/autos.html", context)
+
+class PostList(ListView):
+    model = Post

@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from seguros.views import index, autos_1, hogar_1, vida_1, agregar_post, buscar_post
+from seguros.views import ( index, autos_1, hogar_1, vida_1, agregar_post, buscar_post, 
+    PostList
+)
 
 urlpatterns = [
     path('', index, name="index"),
@@ -25,4 +27,6 @@ urlpatterns = [
     path('rama-vida/', vida_1, name="vida"),
     path('rama-autos/agregar', agregar_post, name="agregar-post"),
     path('rama-autos/buscar', buscar_post, name="buscar-post"),
+    path('post-list', PostList.as_view(), name = "post-list"),
+    
 ]
