@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from seguros.models import Post
 from seguros.forms import PostForm
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DetailView
 
 def index(request):
@@ -46,3 +47,8 @@ class PostList(ListView):
 class PostDetail(DetailView):
     model = Post
     context_object_name = "post"
+
+class PostUpdate( UpdateView):
+    model = Post
+    success_url = reverse_lazy("post-list")
+    fields = '__all__'

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from seguros.views import ( index, autos_1, hogar_1, vida_1, agregar_post, buscar_post, 
-    PostList, PostDetail
+    PostList, PostDetail, PostUpdate
 )
 
 urlpatterns = [
@@ -29,5 +29,6 @@ urlpatterns = [
     path('rama-autos/buscar', buscar_post, name="buscar-post"),
     path('post/list', PostList.as_view(), name = "post-list"),
     path('post/<pk>/detail', PostDetail.as_view(), name = "post-detail"),
+    path('post/<pk>/update', PostUpdate.as_view(), name="post-update"),
     
 ]
