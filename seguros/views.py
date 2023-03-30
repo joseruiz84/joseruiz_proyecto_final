@@ -47,6 +47,11 @@ class PostList(ListView):
     model = Post
     context_object_name = "posts"
 
+class PostMineList(LoginRequiredMixin, PostList):
+    
+    def get_queryset(self):
+        return Post.objects.filter(publisher=self.request.user.id).all()
+
 class PostDetail(DetailView):
     model = Post
     context_object_name = "post"

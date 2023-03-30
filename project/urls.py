@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from seguros.views import ( index, autos_1, hogar_1, vida_1, agregar_post, buscar_post, 
-    PostList, PostDetail, PostUpdate, PostDelete, Login, SignUp, Logout
+    PostList, PostDetail, PostUpdate, PostDelete, Login, SignUp, Logout, PostMineList
 )
 
 urlpatterns = [
@@ -34,5 +34,6 @@ urlpatterns = [
     path('login/', Login.as_view(), name="login"),
     path('signup/', SignUp.as_view(), name="singup"),
      path('logout/', Logout.as_view(), name="logout"),
+     path('post/mine/list/', PostMineList.as_view(), name="post-mine"),
     
 ]
