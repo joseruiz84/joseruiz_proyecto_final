@@ -60,24 +60,35 @@
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'autos' %}">Autos</a>
-          </li>
-          <li class="nav-item">
+           </li>
+           {% if user.is_authenticated %}
+             <li class="nav-item">
+             <a class="nav-link" href="{% url 'autos' %}">Autos</a>
+            </li>
+            <li class="nav-item">
             <a class="nav-link" href="{% url 'hogar' %}">Hogar</a>
-          </li>
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" href="{% url 'vida' %}">Vida</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'post-list' %}">Cambiar Coberturas</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Cerrar sesion</a>
+             </li>
+          {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'vida' %}">Vida</a>
+            <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'post-list' %}">Cambiar_Coberturas</a>
-          </li>
+          {% endif %}
         </ul>
+        {% if user.is_authenticated %}
         <form action="{% url 'buscar-post' %}" class="d-flex">
           <input class="form-control me-2" name="criterio" type="search" placeholder="Buscar una cobertura" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
+        {% endif %}
       </div>
     </div>
   </nav>

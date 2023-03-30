@@ -3,6 +3,9 @@ from seguros.models import Post
 from seguros.forms import PostForm
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     return render(request, "seguros/index.html")
@@ -48,13 +51,24 @@ class PostDetail(DetailView):
     model = Post
     context_object_name = "post"
 
-class PostUpdate( UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
     success_url = reverse_lazy("post-list")
     fields = '__all__'
 
 
-class PostDelete( DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     context_object_name = "post"
     success_url = reverse_lazy("post-list")
+
+class Login(LoginView):
+    next_page = reverse_lazy('post-list')
+
+class Logout(LogoutView):
+    template_name = 'registration/logout.html'
+
+class SignUp(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/signup.html'
+    success_url = reverse_lazy('post-list')
