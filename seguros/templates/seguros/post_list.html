@@ -3,7 +3,7 @@
 {% block main %}
 <ul>
     {% for post in object_list %}
-    <li> {{post.id}} - {{ post.Suma_asegurada }} - {{ post.Suma_description }} - {{ post.heading}} 
+    <li> {{post.id}} - {{ post.Suma_asegurada }} - {{ post.Suma_description }} - {{ post.heading}}
         <a href="{% url 'post-detail' post.id %}">Detalle</a>
         {% if user.is_authenticated and user.id == post.publisher.id %}
             <a href="{% url 'post-update' post.id %}">Actualizar</a>

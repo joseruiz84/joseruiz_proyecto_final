@@ -3,7 +3,7 @@
 {% block main %}
 <html>
     <body>
-        <h1>Coberturas de autos</h1>   
+        <h1>Pedidos de cotizaciones para autos</h1>   
 <!--nuevo   -->
 {%if form%}
 <form action="{% url 'agregar-post' %}" method="post">
@@ -18,7 +18,7 @@
 </html>
 <ul>
     {%  for producto in posts  %}
-    <li> {{producto.id}} - {{producto.Suma_asegurada}} - {{ producto.Suma_description }} - {{ producto.heading}} - {{ producto.telefono }}</li>
+    <li> {{producto.id}} - {{producto.Suma_asegurada}} - {{ producto.Suma_description }} - {{ producto.heading}} - {{ producto.telefono }} - {{ producto.publisher }} - {{ producto.mail }}</li>
     {% endfor %}
 </ul>
 </html>
