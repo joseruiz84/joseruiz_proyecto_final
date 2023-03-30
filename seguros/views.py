@@ -2,7 +2,7 @@ from django.shortcuts import render
 from seguros.models import Post
 from seguros.forms import PostForm
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 def index(request):
     return render(request, "seguros/index.html")
@@ -36,7 +36,7 @@ def agregar_post(request):
 def buscar_post(request):
     criterio = request.GET.get("criterio")
     context = {
-        "posts": Post.objects.filter(Suma_description__icontains=criterio).all(),
+        "posts": Post.objects.filter(heading__icontains=criterio).all(),
     }
     return render(request, "seguros/autos.html", context)
 
@@ -52,3 +52,9 @@ class PostUpdate( UpdateView):
     model = Post
     success_url = reverse_lazy("post-list")
     fields = '__all__'
+
+
+class PostDelete( DeleteView):
+    model = Post
+    context_object_name = "post"
+    success_url = reverse_lazy("post-list")
