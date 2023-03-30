@@ -81,6 +81,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">Iniciar sesion</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'singup' %}">Registrarse</a>
+          </li>
           {% endif %}
         </ul>
         {% if user.is_authenticated %}
